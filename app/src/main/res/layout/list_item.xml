@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+    <!-- to put data from class User-->
+    <variable
+        name="user"
+        type="com.google.testjetback.model.User"/>
+
+        <variable
+            name="viewModel"
+            type="com.google.testjetback.viewModel.MainViewModel"/>
+    </data>
+
+    <RelativeLayout
+        android:onClick="@{() -> viewModel.itemClick(user)}"
+        android:clickable="true"
+        android:focusable="true"
+        android:background="?android:selectableItemBackground"
+        android:padding="16dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+        <TextView
+            android:textColor="@{user.isMark ? @color/markText : @color/normalText}"
+            android:id="@+id/name"
+            android:text="@{user.name}"
+            android:textSize="19sp"
+            android:textStyle="bold"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            />
+        <TextView
+            android:layout_marginTop="30dp"
+            android:id="@+id/email"
+            android:text="@{user.email}"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            />
+
+    </RelativeLayout>
+</layout>
